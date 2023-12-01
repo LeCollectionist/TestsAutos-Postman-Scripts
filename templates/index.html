@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Postman Extract</title>
+</head>
+<body>
+    <h1></h1>
+    <form class="flex-col" action="/run_script" method="post" enctype="multipart/form-data">
+        <div class="bg-white relative rounded-t-2xl shadow-2xl" >
+            <input type="file" name="file" accept=".json" required type="file" multiple class="cursor-pointer relative block opacity-0 w-full h-full p-20 z-50" id="fileInput" onchange="updateFileName()">
+        <div class="text-center p-10 absolute top-0 right-0 left-0 m-auto">
+            <h4 id="fileName">
+                Drop files anywhere to upload
+                <br/>or<br/>
+                Select Files
+            </h4>
+        </div>
+    </div>
+        <button type="submit" class="shadow-2xl rounded-b-2xl hover:shadow-form w-full bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none">Run Script</button>
+        
+    </form>
+    
+</body>
+</html>
+
