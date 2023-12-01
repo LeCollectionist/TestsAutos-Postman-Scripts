@@ -1,6 +1,7 @@
 import json
 from datetime import datetime
 from flask import Flask, render_template, request, jsonify
+import os
 
 app = Flask(__name__)
 # Structure du modèle attendu
@@ -98,4 +99,5 @@ def run_script():
         return jsonify({'error': f'Une erreur est survenue : {str(e)}'})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=int(os.environ.get('PORT', 5000)))
+
