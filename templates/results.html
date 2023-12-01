@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" type="/static/styles.css">
     <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Postman Extracts results</title>
@@ -25,7 +25,7 @@
             <button class="copy-button hover:shadow-form w-full rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none">Copier les {{ names_without_tests_output | length }} requêtes </br><p id="floating_helper_text" class=" text-xs text-gray-500 dark:text-gray-400">Requêtes ne possédant pas de tests sur postman.</p></button>
         </div>
 
-        <script src="{{ url_for('static', filename='script.js') }}"></script>
+        <script src="/static/script.js"></script>
     </div>
 
     
