@@ -3,6 +3,7 @@ from datetime import datetime
 from flask import Flask, render_template, request, jsonify
 import os
 
+app.config['SERVER_NAME'] = 'young-hollows-05196.herokuapp.com'
 app = Flask(__name__)
 # Structure du modèle attendu
 expected_keys = ["id", "name", "timestamp", "collection_id", "folder_id",
