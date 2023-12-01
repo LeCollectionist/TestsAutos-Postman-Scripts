@@ -98,6 +98,3 @@ def run_script():
     except Exception as e:
         return jsonify({'error': f'Une erreur est survenue : {str(e)}'})
 
-if __name__ == '__main__':
-    app.run(debug=True, port=int(os.environ.get('PORT', 5000)))
-
