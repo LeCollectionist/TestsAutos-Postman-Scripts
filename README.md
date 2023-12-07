@@ -28,6 +28,22 @@
 
 ###
 
+<h2 align="left">Run it locally</h2>
+
+###
+
+<p align="left">à ecrire</p>
+
+###
+
+<h2 align="left">Live demo</h2>
+
+###
+
+<p align="left">[Test the app right here ! 😉](https://young-hollows-05196-c7433558de08.herokuapp.com/)</p>
+
+###
+
 <h2 align="left">Technologies used</h2>
 
 ###
