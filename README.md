@@ -40,7 +40,7 @@
 
 ###
 
-<p align="left">[Test the app right here ! 😉](https://young-hollows-05196-c7433558de08.herokuapp.com/)</p>
+[Test the app right here ! 😉](https://young-hollows-05196-c7433558de08.herokuapp.com/)
 
 ###
 
