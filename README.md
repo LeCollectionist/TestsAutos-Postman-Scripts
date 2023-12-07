@@ -2,7 +2,7 @@
 
 ###
 
-<p align="left">The postman extract web-app allow user to extract empty test request id and test written's request id side by side  from the postman's json result file.</p>
+<p align="left">The postman web-app allow user to extract empty test request id and test written's request id side by side  from the postman's json result file.</p>
 
 ###
 
