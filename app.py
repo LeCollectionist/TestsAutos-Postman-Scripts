@@ -5,8 +5,6 @@ import os
 
 app = Flask(__name__)
 
-# ... (votre code existant)
-
 @app.route('/run_script', methods=['POST'])
 def run_script():
     try:
