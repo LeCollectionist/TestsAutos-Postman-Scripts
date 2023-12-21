@@ -91,6 +91,11 @@ def run_script():
             names_with_tests, names_without_tests = extract_names(data)
             print('Names with tests:', names_with_tests)
             print('Names without tests:', names_without_tests)
+
+            # Sauvegarder les noms avec tests dans le fichier JSON
+            output_json_path = "chemin/vers/le/fichier/names_with_tests.json"
+            generate_output_file(output_json_path, names_with_tests)
+
             return render_template('results.html', names_with_tests_output=names_with_tests, names_without_tests_output=names_without_tests)
         else:
             return jsonify({'error': 'Le fichier JSON ne correspond pas à la structure attendue'})
@@ -98,3 +103,20 @@ def run_script():
     except Exception as e:
         return jsonify({'error': f'Une erreur est survenue : {str(e)}'})
 
+# Ajout de la route pour sauvegarder les noms avec tests
+@app.route('/save_names_with_tests', methods=['POST'])
+def save_names_with_tests():
+    try:
+        # Récupérer les noms avec tests depuis la requête
+        names_with_tests = request.json.get('names_with_tests')
+
+        # Vérifier si la clé 'names_with_tests' existe dans la requête
+        if names_with_tests is not None:
+            # Générer et sauvegarder le fichier JSON avec les noms et les tests
+            output_json_path = "names_with_tests.json"
+            generate_output_file(output_json_path, names_with_tests)
+            return jsonify({'success': 'Noms avec tests sauvegardés avec succès'})
+        else:
+            return jsonify({'error': 'La clé "names_with_tests" est manquante dans la requête'})
+    except Exception as e:
+        return jsonify({'error': f'Une erreur est survenue : {str(e)}'})
