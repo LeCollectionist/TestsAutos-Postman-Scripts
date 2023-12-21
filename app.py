@@ -4,10 +4,14 @@ from flask import Flask, render_template, request, jsonify
 import os
 
 app = Flask(__name__)
+
 # Structure du modèle attendu
 expected_keys = ["id", "name", "timestamp", "collection_id", "folder_id",
                  "environment_id", "totalPass", "delay", "persist", "status",
                  "startedAt", "totalFail", "results", "count", "totalTime", "collection"]
+
+# Variable globale pour stocker les noms avec tests
+global_names_with_tests = []
 
 # Fonction pour vérifier l'intégrité du fichier JSON
 def check_json_integrity(json_data):
@@ -63,6 +67,10 @@ def extract_names(data):
     print('Names with tests:', names_with_tests)
     print('Names without tests:', names_without_tests)
 
+    # Mettre à jour la variable globale
+    global global_names_with_tests
+    global_names_with_tests = names_with_tests
+
     return names_with_tests, names_without_tests
 
 # Fonction pour générer un fichier JSON avec les noms
@@ -97,3 +105,15 @@ def run_script():
 
     except Exception as e:
         return jsonify({'error': f'Une erreur est survenue : {str(e)}'})
+
+@app.route('/get_names_with_tests', methods=['GET'])
+def get_names_with_tests():
+    # Récupérer les noms avec tests depuis la variable globale
+    global global_names_with_tests
+    names_with_tests = global_names_with_tests
+
+    # Retourner les noms avec tests au format JSON
+    return jsonify({'names_with_tests': names_with_tests})
+
+if __name__ == '__main__':
+    app.run(debug=True)
