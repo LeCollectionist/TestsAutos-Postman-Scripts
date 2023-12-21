@@ -93,7 +93,7 @@ def run_script():
             print('Names without tests:', names_without_tests)
 
             # Sauvegarder les noms avec tests dans le fichier JSON
-            output_json_path = "chemin/vers/le/fichier/names_with_tests.json"
+            output_json_path = "names_with_tests.json"
             generate_output_file(output_json_path, names_with_tests)
 
             return render_template('results.html', names_with_tests_output=names_with_tests, names_without_tests_output=names_without_tests)
