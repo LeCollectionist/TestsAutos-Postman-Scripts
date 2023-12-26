@@ -28,10 +28,6 @@
 
 ###
 
-<p align="left">à ecrire</p>
-
-###
-
 <h2 align="left">Live demo</h2>
 
 ###
