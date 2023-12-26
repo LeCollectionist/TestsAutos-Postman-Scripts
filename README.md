@@ -28,10 +28,6 @@
 
 ###
 
-<h2 align="left">Run it locally</h2>
-
-###
-
 <p align="left">à ecrire</p>
 
 ###
