@@ -64,8 +64,8 @@ def extract_names(data):
                 else:
                     names_without_tests.append(name)
 
-    print('Names with tests:', names_with_tests)
-    print('Names without tests:', names_without_tests)
+    #print('Names with tests:', names_with_tests)
+    #print('Names without tests:', names_without_tests)
 
     # Mettre à jour la variable globale
     global global_names_with_tests
@@ -94,11 +94,11 @@ def run_script():
 
         # Traiter les résultats
         if success:
-            print('Data from JSON file:', data) 
+            #print('Data from JSON file:', data) 
             display_run_info(data)
             names_with_tests, names_without_tests = extract_names(data)
-            print('Names with tests:', names_with_tests)
-            print('Names without tests:', names_without_tests)
+            #print('Names with tests:', names_with_tests)
+            #print('Names without tests:', names_without_tests)
             return render_template('results.html', names_with_tests_output=names_with_tests, names_without_tests_output=names_without_tests)
         else:
             return jsonify({'error': 'Le fichier JSON ne correspond pas à la structure attendue'})

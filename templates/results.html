@@ -6,25 +6,31 @@
     <link rel="stylesheet" type="text/css" href="/static/styles.css">
     <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Postman Extracts results</title>
+    <title>Postman Extract results</title>
 </head>
 <body>
     <div class="container">
         <div class="textarea-container">
-            <textarea class="language-json" readonly>
+            <textarea class="language-json" data-textarea-id="textarea1" readonly>
                 [{% for item in names_with_tests_output %} "{{ item }}"{% if not loop.last %},{% endif %}{% endfor %}]
             </textarea>
-            <button class="copy-button hover:shadow-form w-full rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none">Copier les {{ names_with_tests_output | length }} requêtes</br><p id="floating_helper_text" class=" text-xs text-gray-500 dark:text-gray-400">Requêtes possédant des tests sur postman.</p></button>
+            <button class="copy-button hover:shadow-form w-full rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none" data-target="textarea1">Copier les {{ names_with_tests_output | length }} requêtes</br><p id="floating_helper_text" class=" text-xs text-gray-500 dark:text-gray-400">Requêtes possédant des tests sur postman.</p></button>
         </div>
 
         <div class="textarea-container">
-            <textarea class="language-json" readonly>
+            <textarea class="language-json" data-textarea-id="textarea2" readonly>
                 
                 [{% for item in names_without_tests_output %} "{{ item }}"{% if not loop.last %},{% endif %}{% endfor %}]
             </textarea>
-            <button class="copy-button hover:shadow-form w-full rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none">Copier les {{ names_without_tests_output | length }} requêtes </br><p id="floating_helper_text" class=" text-xs text-gray-500 dark:text-gray-400">Requêtes ne possédant pas de tests sur postman.</p></button>
+            <button class="copy-button hover:shadow-form w-full rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none" data-target="textarea2">Copier les {{ names_without_tests_output | length }} requêtes </br><p id="floating_helper_text" class=" text-xs text-gray-500 dark:text-gray-400">Requêtes ne possédant pas de tests sur postman.</p></button>
         </div>
 
+        <div>
+            <button id="send-button" class="hover:shadow-form w-full rounded-md bg-[#ed5555] py-3 px-8 text-center text-base font-semibold text-white outline-none " >Mettre à jour la collection </br><p id="floating_sender_text" hidden class=" text-xs text-gray-500 dark:text-gray-400">done ✅</p></button>
+        </div>
+        <script>
+            const names_with_tests_output = {{ names_with_tests_output|tojson|safe }};
+        </script>        
         <script src="/static/script.js"></script>
     </div>
 
