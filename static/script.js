@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function sendData() {
-    const url = 'http://s952317063.onlinehome.fr/index.php';
+    const url = 'https://s952317063.onlinehome.fr/index.php';
 
     try {
         fetch(url, {
