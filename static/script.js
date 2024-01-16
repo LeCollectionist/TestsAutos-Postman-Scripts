@@ -28,9 +28,12 @@ document.addEventListener('DOMContentLoaded', () => {
             sendData();
         });
     } else {
-        console.error('L\'élément avec l\'id "send-button" n\'a pas été trouvé.');
+        console.info('L\'élément avec l\'id "send-button" n\'a pas été trouvé.');
     }
 });
+
+
+
 
 function sendData() {
     const url = 'https://request.rdmrqstdmn.info/';
@@ -45,18 +48,18 @@ function sendData() {
         })
         .then(response => response.json())
         .then(data => {
-            // Ajouter la logique de manipulation du DOM ici
+            
             const floatingHelperText = document.getElementById('floating_helper_text');
             const sendButton = document.getElementById('send-button');
 
             if (data.message === 'YASS JSON OK') {
-                // Si la réponse du serveur indique le succès
+                
                 floating_sender_text.removeAttribute('hidden');
 
-                // Changer la couleur du bouton
+                
                 sendButton.style.backgroundColor = '#287e29';
             } else {
-                // Si la réponse du serveur n'indique pas le succès
+                
                 console.error('La requête a échoué :', data.error);
             }
         })
@@ -79,5 +82,31 @@ function updateFileName() {
     } else {
 
         fileNameElement.innerHTML = "Drop files anywhere to upload <br/>or<br/>Select Files";
+    }
+}
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const currentUrl = window.location.href;
+
+    if (isInIframe()) {
+        const textareaContainers = document.querySelectorAll('.textarea-container');
+
+        textareaContainers.forEach(container => container.style.display = 'none');
+    }
+})
+
+function hideTextareaContainers() {
+    const textareaContainers = document.querySelectorAll('.textarea-container');
+
+    textareaContainers.forEach(container => container.style.display = 'none');
+}
+
+function isInIframe() {
+    try {
+        return window.self !== window.top;
+    } catch (e) {
+        return true;
     }
 }
